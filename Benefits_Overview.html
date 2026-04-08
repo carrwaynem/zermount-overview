@@ -216,20 +216,27 @@
       position: relative;
     }
 
+    .layer-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
     .layer-num {
       font-family: 'JetBrains Mono', monospace;
       font-size: 10px;
       letter-spacing: 0.18em;
       color: var(--g700);
-      margin-bottom: 16px;
+      flex-shrink: 0;
     }
 
     .layer-card h4 {
       font-size: 0.95rem;
       font-weight: 600;
       color: var(--white);
-      margin-bottom: 8px;
       letter-spacing: 0.01em;
+      margin: 0;
     }
 
     .layer-card p {
@@ -718,33 +725,45 @@
     </p>
     <div class="layers-grid">
       <div class="layer-card">
-        <p class="layer-num">01</p>
-        <h4>Brand &amp; Voice</h4>
+        <div class="layer-header">
+          <p class="layer-num">01</p>
+          <h4>Brand &amp; Voice</h4>
+        </div>
         <p>How Zermount communicates. What it stands for. The tone that earns trust with clients and candidates. No guessing on language or positioning.</p>
       </div>
       <div class="layer-card">
-        <p class="layer-num">02</p>
-        <h4>Offers &amp; Positioning</h4>
+        <div class="layer-header">
+          <p class="layer-num">02</p>
+          <h4>Offers &amp; Positioning</h4>
+        </div>
         <p>What you sell, how you sell it, and why clients choose you over alternatives. Clear enough for anyone to represent accurately.</p>
       </div>
       <div class="layer-card">
-        <p class="layer-num">03</p>
-        <h4>Operations &amp; Process</h4>
+        <div class="layer-header">
+          <p class="layer-num">03</p>
+          <h4>Operations &amp; Process</h4>
+        </div>
         <p>How work moves. Who owns what. Where decisions belong. The operating rhythm that keeps delivery consistent, regardless of who is running it.</p>
       </div>
       <div class="layer-card">
-        <p class="layer-num">04</p>
-        <h4>Customer Intelligence</h4>
+        <div class="layer-header">
+          <p class="layer-num">04</p>
+          <h4>Customer Intelligence</h4>
+        </div>
         <p>Who your best clients are, what triggers their decision to engage, and what they need to hear to trust you. Built from what your team already knows.</p>
       </div>
       <div class="layer-card">
-        <p class="layer-num">05</p>
-        <h4>Revenue &amp; Traffic</h4>
+        <div class="layer-header">
+          <p class="layer-num">05</p>
+          <h4>Revenue &amp; Traffic</h4>
+        </div>
         <p>Where business comes from, what the key numbers are, and where margin is being left on the table. Structured for clarity, not complexity.</p>
       </div>
       <div class="layer-card">
-        <p class="layer-num">06</p>
-        <h4>Tools Inventory</h4>
+        <div class="layer-header">
+          <p class="layer-num">06</p>
+          <h4>Tools Inventory</h4>
+        </div>
         <p>Every tool the business runs on. Who has access. What connects to what. The operational infrastructure mapped so any operator can maintain it without the founder's involvement.</p>
       </div>
     </div>
