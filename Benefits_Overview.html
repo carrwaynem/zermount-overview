@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zermount Consulting — The Business Brain</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #030712;
+      --ink-deep: #0A0E1A;
+      --ink-dark: #111827;
+      --ink-mid: #1E2330;
+      --g700: #374151;
+      --g500: #6B7280;
+      --g300: #D1D5DB;
+      --g100: #F3F4F6;
+      --white: #FFFFFF;
+      --blue-core: #0A7AFF;
+      --blue-vivid: #2EA2FF;
+      --blue-wash: #E0F3FF;
+      --cyan: #00D4FF;
+      --emerald: #00E89B;
+      --amber: #FFB400;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--ink);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 32px 56px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .header-brand {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--g500);
+    }
+
+    .header-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue-vivid);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 96px 56px 80px;
+      max-width: 1100px;
+    }
+
+    .hero-kicker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 28px;
+    }
+
+    .hero-headline {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      line-height: 1.08;
+      font-weight: 400;
+      color: var(--white);
+      max-width: 820px;
+      margin-bottom: 32px;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--blue-vivid);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--g300);
+      max-width: 600px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ── DIVIDER LINE ── */
+    .rule {
+      height: 1px;
+      background: rgba(255,255,255,0.07);
+      margin: 0 56px;
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--g700);
+    }
+
+    /* ── PROBLEM BLOCK ── */
+    .problem {
+      padding: 72px 56px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .problem-left .section-label { margin-bottom: 24px; }
+
+    .problem-left h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .problem-left p {
+      color: var(--g300);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .problem-right {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-top: 48px;
+    }
+
+    .pain-card {
+      background: var(--ink-dark);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-left: 3px solid var(--amber);
+      padding: 20px 24px;
+      border-radius: 2px;
+    }
+
+    .pain-card.blue-accent { border-left-color: var(--blue-core); }
+    .pain-card.red-accent { border-left-color: #FF6154; }
+
+    .pain-card p {
+      font-size: 0.9rem;
+      color: var(--g300);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    .pain-card strong {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── WHAT THE BRAIN DOES ── */
+    .brain-section {
+      padding: 72px 56px;
+      background: var(--ink-dark);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .brain-section .section-label { margin-bottom: 16px; }
+
+    .brain-section .intro-text {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.65rem;
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--white);
+      max-width: 760px;
+      margin-bottom: 56px;
+    }
+
+    .brain-section .intro-text em {
+      font-style: italic;
+      color: var(--blue-vivid);
+    }
+
+    .layers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .layer-card {
+      background: var(--ink-mid);
+      padding: 28px 28px 32px;
+      position: relative;
+    }
+
+    .layer-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      color: var(--g700);
+      margin-bottom: 16px;
+    }
+
+    .layer-card h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 8px;
+      letter-spacing: 0.01em;
+    }
+
+    .layer-card p {
+      font-size: 0.83rem;
+      color: var(--g500);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    /* ── WHO THIS SERVES ── */
+    .who-section {
+      padding: 72px 56px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+    }
+
+    .who-block h3 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .who-block .who-role {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--emerald);
+      margin-bottom: 20px;
+    }
+
+    .who-block p {
+      font-size: 0.9rem;
+      color: var(--g300);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .who-block .outcome {
+      margin-top: 20px;
+      background: rgba(0, 232, 155, 0.06);
+      border-left: 2px solid var(--emerald);
+      padding: 14px 18px;
+      border-radius: 2px;
+    }
+
+    .who-block .outcome p {
+      font-size: 0.85rem;
+      color: var(--g300);
+    }
+
+    .who-block .outcome strong {
+      color: var(--emerald);
+      font-weight: 500;
+    }
+
+    /* ── FEAR BLOCK ── */
+    .fear-section {
+      padding: 72px 56px;
+      background: var(--ink-dark);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .fear-section .section-label { margin-bottom: 20px; }
+
+    .fear-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .fear-content h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .fear-content p {
+      font-size: 0.9rem;
+      color: var(--g300);
+      line-height: 1.75;
+      font-weight: 300;
+      margin-bottom: 14px;
+    }
+
+    .fear-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .vs-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .vs-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--g700);
+      text-align: center;
+    }
+
+    .vs-item {
+      padding: 12px 16px;
+      border-radius: 2px;
+      font-size: 0.83rem;
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    .vs-item.bad {
+      background: rgba(255,97,84,0.08);
+      border: 1px solid rgba(255,97,84,0.2);
+      color: #FF9F97;
+      text-decoration: line-through;
+      text-decoration-color: rgba(255,97,84,0.4);
+    }
+
+    .vs-item.good {
+      background: rgba(0,232,155,0.06);
+      border: 1px solid rgba(0,232,155,0.2);
+      color: var(--g300);
+    }
+
+    .vs-item.good strong { color: var(--emerald); font-weight: 500; }
+
+    /* ── WHAT YOU GET ── */
+    .deliverable-section {
+      padding: 72px 56px;
+    }
+
+    .deliverable-section .section-label { margin-bottom: 20px; }
+
+    .deliverable-section h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 48px;
+      max-width: 600px;
+      line-height: 1.2;
+    }
+
+    .deliverable-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .deliverable-item {
+      display: flex;
+      gap: 20px;
+      padding: 24px 28px;
+      background: var(--ink-dark);
+      align-items: flex-start;
+    }
+
+    .deliverable-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--blue-core);
+      letter-spacing: 0.12em;
+      padding-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .deliverable-body h5 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .deliverable-body p {
+      font-size: 0.83rem;
+      color: var(--g500);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .quote-section {
+      padding: 72px 56px;
+      background: linear-gradient(135deg, rgba(10,122,255,0.08) 0%, rgba(0,212,255,0.04) 100%);
+      border-top: 1px solid rgba(10,122,255,0.15);
+      border-bottom: 1px solid rgba(10,122,255,0.15);
+    }
+
+    .quote-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .quote-mark {
+      font-family: 'Instrument Serif', serif;
+      font-size: 5rem;
+      line-height: 0.6;
+      color: var(--blue-core);
+      opacity: 0.4;
+      margin-bottom: 24px;
+    }
+
+    .quote-text {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.65rem;
+      font-style: italic;
+      line-height: 1.45;
+      color: var(--white);
+      margin-bottom: 28px;
+    }
+
+    .quote-attr {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--g500);
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      padding: 80px 56px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .cta-left h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .cta-left p {
+      font-size: 0.9rem;
+      color: var(--g500);
+      max-width: 440px;
+      line-height: 1.65;
+    }
+
+    .cta-right {
+      flex-shrink: 0;
+      text-align: center;
+    }
+
+    .price-tag {
+      font-family: 'Instrument Serif', serif;
+      font-size: 3rem;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .price-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--g500);
+      margin-bottom: 28px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--blue-core);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s ease;
+    }
+
+    .cta-btn:hover { background: var(--blue-vivid); }
+
+    .cta-note {
+      font-size: 0.8rem;
+      color: var(--g700);
+      margin-top: 12px;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      padding: 32px 56px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-brand {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--g700);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .footer-links a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--g700);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover { color: var(--g300); }
+
+    @media (max-width: 860px) {
+      .header { padding: 24px 28px; }
+      .hero { padding: 60px 28px 56px; }
+      .rule { margin: 0 28px; }
+      .problem { padding: 56px 28px; grid-template-columns: 1fr; gap: 40px; }
+      .brain-section { padding: 56px 28px; }
+      .layers-grid { grid-template-columns: 1fr; }
+      .who-section { padding: 56px 28px; grid-template-columns: 1fr; gap: 40px; }
+      .fear-section { padding: 56px 28px; }
+      .fear-layout { grid-template-columns: 1fr; gap: 40px; }
+      .deliverable-section { padding: 56px 28px; }
+      .deliverable-list { grid-template-columns: 1fr; }
+      .quote-section { padding: 56px 28px; }
+      .cta-section { padding: 56px 28px; flex-direction: column; align-items: flex-start; }
+      .footer { padding: 24px 28px; flex-direction: column; gap: 16px; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <span class="header-brand">Ecrof Media Co &mdash; Prepared for Zermount Consulting</span>
+    <span class="header-label">Confidential</span>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-kicker">The Business Brain &mdash; Zermount Consulting</p>
+    <h1 class="hero-headline">
+      Your senior people built this business.<br />
+      <em>Now it can run like they're in the room</em><br />
+      even when they're not.
+    </h1>
+    <p class="hero-sub">
+      What your founders and senior operators know took years to build. Right now, that knowledge lives in their heads. The Business Brain changes that.
+    </p>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="problem-left">
+      <p class="section-label">01 / The Problem</p>
+      <h2>The right knowledge is in the wrong place.</h2>
+      <p>
+        When someone new steps into a role they did not train for, they are not short on effort. They are short on institutional knowledge. The patterns, the priorities, the unwritten decisions that make things move smoothly. That knowledge does not live in a manual. It lives in the people who built the company.
+      </p>
+      <br />
+      <p>
+        Every time a new operator cannot find the answer, three things happen. They guess. They interrupt someone senior. Or they make a decision that does not reflect how your company actually thinks. None of those outcomes are acceptable at scale.
+      </p>
+    </div>
+    <div class="problem-right">
+      <div class="pain-card">
+        <strong>The new operator gap</strong>
+        <p>Experienced in another domain, underequipped for this one. Relies on fragments of information, context from meetings, and outside systems to stay functional. The company's own intelligence is never within reach.</p>
+      </div>
+      <div class="pain-card blue-accent">
+        <strong>Every question costs the founders</strong>
+        <p>The CEO and COO answer the same questions repeatedly. Not because they want to. Because no structure exists to hold what they know. Their time is the most expensive resource in the building. It should not be used as a help desk.</p>
+      </div>
+      <div class="pain-card red-accent">
+        <strong>External systems without internal context</strong>
+        <p>Generic intelligence tools can generate answers. They cannot generate <em>your</em> answers. Without the company's actual thinking baked in, any system is operating blind. The output reflects a best guess, not your standard.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- WHAT THE BRAIN IS -->
+  <section class="brain-section">
+    <p class="section-label">02 / The Solution</p>
+    <p class="intro-text">
+      The Business Brain extracts how your company <em>thinks, sells, operates, and makes decisions</em> &mdash; then structures it so it can be accessed by anyone who needs to operate at a high level, without interrupting the people who built it.
+    </p>
+    <div class="layers-grid">
+      <div class="layer-card">
+        <p class="layer-num">Layer 01</p>
+        <h4>Brand &amp; Voice</h4>
+        <p>How Zermount communicates. What it stands for. The tone that earns trust with clients and candidates. No guessing on language or positioning.</p>
+      </div>
+      <div class="layer-card">
+        <p class="layer-num">Layer 02</p>
+        <h4>Offers &amp; Positioning</h4>
+        <p>What you sell, how you sell it, and why clients choose you over alternatives. Clear enough for anyone to represent accurately.</p>
+      </div>
+      <div class="layer-card">
+        <p class="layer-num">Layer 03</p>
+        <h4>Operations &amp; Process</h4>
+        <p>How work moves. Who owns what. Where decisions belong. The operating rhythm that keeps delivery consistent, regardless of who is running it.</p>
+      </div>
+      <div class="layer-card">
+        <p class="layer-num">Layer 04</p>
+        <h4>Customer Intelligence</h4>
+        <p>Who your best clients are, what triggers their decision to engage, and what they need to hear to trust you. Built from what your team already knows.</p>
+      </div>
+      <div class="layer-card">
+        <p class="layer-num">Layer 05</p>
+        <h4>Revenue &amp; Traffic</h4>
+        <p>Where business comes from, what the key numbers are, and where margin is being left on the table. Structured for clarity, not complexity.</p>
+      </div>
+      <div class="layer-card">
+        <p class="layer-num">Layer 06</p>
+        <h4>Tools Inventory</h4>
+        <p>Every platform in use, who has access, and how it connects. No more shadow systems. No more institutional knowledge lost when someone transitions out.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO THIS SERVES -->
+  <section class="who-section">
+    <div class="who-block">
+      <p class="who-role">For the operator in transition</p>
+      <h3>Brian does not need to guess anymore.</h3>
+      <p>
+        Walking into a new function is not a knowledge problem. It is a structure problem. The knowledge exists inside Zermount. It just has not been organized into something Brian can access.
+      </p>
+      <br />
+      <p>
+        With the Business Brain in place, Brian can pull the answer to how Zermount recruits, how they evaluate candidates, what the intake process looks like, and how they communicate with clients, without scheduling a meeting with a founder or relying on a system that does not know your business.
+      </p>
+      <div class="outcome">
+        <p><strong>Outcome:</strong> Brian operates like someone who has been in the role for years. From day one.</p>
+      </div>
+    </div>
+    <div class="who-block">
+      <p class="who-role">For the founders and C-suite</p>
+      <h3>Stop answering the same questions twice.</h3>
+      <p>
+        The CEO and COO built this company. Every process that works, works because of decisions they made. The problem is not that they lack good judgment. The problem is that their judgment is not yet portable.
+      </p>
+      <br />
+      <p>
+        The Business Brain captures what they know and makes it available to the people who need it, without the meeting, the interruption, or the repeated explanation. The founders remain the authority. The Brain extends their reach.
+      </p>
+      <div class="outcome">
+        <p><strong>Outcome:</strong> Less time spent answering questions. More time spent growing the company.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- FEAR BLOCK -->
+  <section class="fear-section">
+    <p class="section-label">03 / On the Fear of Outside Systems</p>
+    <div class="fear-layout">
+      <div class="fear-content">
+        <h2>This is not outside intelligence replacing yours.</h2>
+        <p>
+          The concern founders carry when they hear about intelligence systems is reasonable. They have built something specific. They do not want a generic layer dropped on top of it that speaks in a language their clients will not recognize.
+        </p>
+        <p>
+          The Business Brain does the opposite. It captures what the founders and senior operators actually know, in their language, reflecting their standards. The output is a structured version of their own thinking. Nothing is invented. Nothing is borrowed. It is theirs, organized.
+        </p>
+        <p>
+          The intelligence is already inside Zermount. The Brain is simply the structure that holds it.
+        </p>
+      </div>
+      <div class="fear-visual">
+        <div class="vs-row">
+          <div class="vs-item bad">Generic system with no company context</div>
+          <div class="vs-label">vs</div>
+          <div class="vs-item good"><strong>Zermount's own thinking,</strong> structured and accessible</div>
+        </div>
+        <div class="vs-row">
+          <div class="vs-item bad">Answers that don't reflect how you work</div>
+          <div class="vs-label">vs</div>
+          <div class="vs-item good"><strong>Decisions grounded</strong> in your actual standards</div>
+        </div>
+        <div class="vs-row">
+          <div class="vs-item bad">Founder available as a help desk</div>
+          <div class="vs-label">vs</div>
+          <div class="vs-item good"><strong>Founder's judgment portable</strong> without the interruption</div>
+        </div>
+        <div class="vs-row">
+          <div class="vs-item bad">New operator guessing in high-stakes moments</div>
+          <div class="vs-label">vs</div>
+          <div class="vs-item good"><strong>Operator equipped</strong> to act on day one</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELIVERABLES -->
+  <section class="deliverable-section">
+    <p class="section-label">04 / What Zermount Receives</p>
+    <h2>A complete operating package. Built once. Used indefinitely.</h2>
+    <div class="deliverable-list">
+      <div class="deliverable-item">
+        <span class="deliverable-num">01</span>
+        <div class="deliverable-body">
+          <h5>The Business Brain Document</h5>
+          <p>All six layers, compiled into a structured reference that captures how Zermount thinks, operates, and grows. Readable by any operator. Updated as the company evolves.</p>
+        </div>
+      </div>
+      <div class="deliverable-item">
+        <span class="deliverable-num">02</span>
+        <div class="deliverable-body">
+          <h5>Operating Instructions (CLAUDE.md)</h5>
+          <p>A structured reference file that defines voice, decision rights, skill routing, and brand behavior, so any system or operator working within Zermount starts with the right context.</p>
+        </div>
+      </div>
+      <div class="deliverable-item">
+        <span class="deliverable-num">03</span>
+        <div class="deliverable-body">
+          <h5>Skills Toolkit (Brand-Adapted)</h5>
+          <p>Ready-to-use skill documents for content creation, client communications, process documentation, and email. Built to Zermount's voice and standards, not a generic template.</p>
+        </div>
+      </div>
+      <div class="deliverable-item">
+        <span class="deliverable-num">04</span>
+        <div class="deliverable-body">
+          <h5>Master Prompt Reference</h5>
+          <p>A prompting guide that ensures anyone using an intelligence system to support Zermount operations gets outputs that reflect the company, not a generic approximation.</p>
+        </div>
+      </div>
+      <div class="deliverable-item">
+        <span class="deliverable-num">05</span>
+        <div class="deliverable-body">
+          <h5>Facilitated Intake (Two Sessions)</h5>
+          <p>Two structured sessions, 50 to 65 minutes each. The founders and senior operators are the subject, not the student. The extraction is done with them, not done to them.</p>
+        </div>
+      </div>
+      <div class="deliverable-item">
+        <span class="deliverable-num">06</span>
+        <div class="deliverable-body">
+          <h5>Handoff Session + 30-Day Revision Window</h5>
+          <p>A live review of the completed Brain, delivered within 48 hours of the final session. Thirty days of revision access to ensure the output reflects Zermount accurately before it is deployed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="quote-section">
+    <div class="quote-inner">
+      <div class="quote-mark">&ldquo;</div>
+      <p class="quote-text">Instead of relying on some autonomous, ambiguous system, he can literally tap into the intelligence of the C-suite founders without having to interrupt them.</p>
+      <p class="quote-attr">The Business Brain &mdash; Core Value Proposition</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-left">
+      <h2>One engagement. Zermount runs on its own intelligence from here.</h2>
+      <p>
+        Two facilitated sessions. Compiled and delivered within 48 hours. A complete operating package that holds the company's knowledge, in its own language, available to the people who need it.
+      </p>
+    </div>
+    <div class="cta-right">
+      <a href="mailto:toure@ecrof.co?subject=Business Brain — Zermount Consulting" class="cta-btn">Start the Conversation</a>
+      <p class="cta-note">Reach out directly to schedule an intake call.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span class="footer-brand">Ecrof Media Co &mdash; Build it so it moves.</span>
+    <nav class="footer-links">
+      <a href="https://www.zermount.com" target="_blank">zermount.com</a>
+      <a href="https://www.linkedin.com/company/zermount-consulting/" target="_blank">LinkedIn</a>
+      <a href="mailto:toure@ecrof.co">toure@ecrof.co</a>
+    </nav>
+  </footer>
+
+</body>
+</html>
